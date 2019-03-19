@@ -7,11 +7,17 @@
 
 ## Steps:
 
-- Start zookeeper and kafka broker
+- Start zookeeper and kafka broker by executing the following commands from kafka directory (in two separate terminals)
+    ```bash
+    bin/zookeeper-server-start.sh config/zookeeper.properties
+    ```
+    ```bash
+    bin/kafka-server-start.sh config/server.properties
+    ```
 - Build the application by running `./gradlew clean build` from inside the cloned repository
 - Run the application by running `java -jar build/libs/Bedservice-0.0.1-SNAPSHOT.jar`
 - Navigate to the URL [localhost:8080/beds](http://localhost:8080/beds) and verify that it returns an empty collection
-- Add a bed by running 
+- Add a bed by running the following at a terminal window (you can also use postman)
     ```bash
     curl -X POST -H "Content-Type: application/json" --data '{"id":"1234","location":"first floor general ward"}' "http://localhost:8080/create
     ```
